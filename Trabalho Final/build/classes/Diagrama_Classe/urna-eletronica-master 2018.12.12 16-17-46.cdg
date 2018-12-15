@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="urna-eletronica-master">
+  <ClassDiagramComponents>
+    <Class name="Candidato" package="cliente" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields>
+        <Field name="numero" type="String" visibility="private"/>
+        <Field name="nome" type="String" visibility="private"/>
+        <Field name="voto" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="numero"/>
+          <Argument type="String" name="nome"/>
+          <Argument type="int" name="voto"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getNumero" returnType="String" visibility="public"/>
+        <Method name="setNumero" returnType="void" visibility="public">
+          <Argument type="String" name="numero"/>
+        </Method>
+        <Method name="getNome" returnType="String" visibility="public"/>
+        <Method name="setNome" returnType="void" visibility="public">
+          <Argument type="String" name="nome"/>
+        </Method>
+        <Method name="getVoto" returnType="int" visibility="public"/>
+        <Method name="setVoto" returnType="void" visibility="public">
+          <Argument type="int" name="voto"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Client" package="cliente" visibility="public" xPosition="320.0" yPosition="20.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Eleitor" package="cliente" visibility="public" xPosition="620.0" yPosition="20.0">
+      <Fields>
+        <Field name="titulo" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="titulo"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getTitulo" returnType="String" visibility="public"/>
+        <Method name="setTitulo" returnType="void" visibility="public">
+          <Argument type="String" name="titulo"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Urna" package="cliente" visibility="public" xPosition="920.0" yPosition="20.0">
+      <Fields>
+        <Field name="eleitor" type="Eleitor" visibility="private"/>
+        <Field name="c1" type="Candidato" visibility="public"/>
+        <Field name="branco" type="int" visibility="public"/>
+        <Field name="nulo" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="cadastrarCandidato" returnType="void" visibility="public"/>
+        <Method name="getCandidato" returnType="String" visibility="public"/>
+        <Method name="exibirCandidatos" returnType="void" visibility="public">
+          <Argument type="List&lt;UrnaInterface&gt;" name="candidatos"/>
+        </Method>
+        <Method name="cadastrarEleitor" returnType="void" visibility="public">
+          <Argument type="Eleitor" name="eleitor"/>
+        </Method>
+        <Method name="getTitulo" returnType="String" visibility="public"/>
+        <Method name="votarCandidato" returnType="void" visibility="public">
+          <Argument type="String" name="voto"/>
+        </Method>
+        <Method name="getVoto" returnType="String" visibility="public"/>
+        <Method name="exibirVotos" returnType="void" visibility="public">
+          <Argument type="List&lt;UrnaInterface&gt;" name="votos"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Interface name="UrnaInterface" package="cliente" visibility="public" xPosition="1220.0" yPosition="20.0">
+      <Methods>
+        <Method name="cadastrarCandidato" returnType="void" visibility="public"/>
+        <Method name="getCandidato" returnType="String" visibility="public"/>
+        <Method name="exibirCandidatos" returnType="void" visibility="public">
+          <Argument type="List&lt;UrnaInterface&gt;" name="candidatos"/>
+        </Method>
+        <Method name="cadastrarEleitor" returnType="void" visibility="public">
+          <Argument type="Eleitor" name="eleitor"/>
+        </Method>
+        <Method name="getTitulo" returnType="String" visibility="public"/>
+        <Method name="votarCandidato" returnType="void" visibility="public">
+          <Argument type="String" name="voto"/>
+        </Method>
+        <Method name="getVoto" returnType="String" visibility="public"/>
+        <Method name="exibirVotos" returnType="void" visibility="public">
+          <Argument type="List&lt;UrnaInterface&gt;" name="votos"/>
+        </Method>
+      </Methods>
+    </Interface>
+    <Class name="Server_Multiplo" package="servidor" visibility="public" xPosition="1520.0" yPosition="20.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Sistema" package="servidor" visibility="public" xPosition="1820.0" yPosition="20.0">
+      <Fields>
+        <Field name="urnas" type="List&lt;UrnaInterface&gt;" visibility="private" isFinal="true"/>
+        <Field name="urna" type="UrnaInterface" visibility="private"/>
+        <Field name="urnaNumero" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="addUrna" returnType="void" visibility="public">
+          <Argument type="UrnaInterface" name="urna"/>
+        </Method>
+        <Method name="removeUrna" returnType="void" visibility="public">
+          <Argument type="UrnaInterface" name="urna"/>
+        </Method>
+        <Method name="getCandidato" returnType="void" visibility="public"/>
+        <Method name="getVoto" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Interface name="SistemaInterface" package="servidor" visibility="public" xPosition="2120.0" yPosition="20.0">
+      <Methods>
+        <Method name="addUrna" returnType="void" visibility="public">
+          <Argument type="UrnaInterface" name="urna"/>
+        </Method>
+        <Method name="removeUrna" returnType="void" visibility="public">
+          <Argument type="UrnaInterface" name="urna"/>
+        </Method>
+        <Method name="getCandidato" returnType="void" visibility="public"/>
+        <Method name="getVoto" returnType="void" visibility="public"/>
+      </Methods>
+    </Interface>
+    <Class name="Armazenamento" package="util" visibility="public" xPosition="20.0" yPosition="420.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="salvarDadosCandidato" returnType="void" visibility="public">
+          <Argument type="ArrayList" name="dados"/>
+        </Method>
+        <Method name="salvarDadosEleitor" returnType="void" visibility="public">
+          <Argument type="ArrayList" name="dados"/>
+        </Method>
+        <Method name="lerDadosCandidato" returnType="Object" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <UseRelation source="cliente.Urna" target="cliente.UrnaInterface" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="servidor.Sistema" target="servidor.SistemaInterface"/>
+    <UseRelation source="servidor.Sistema" target="cliente.UrnaInterface" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="c1" source="cliente.Urna" target="cliente.Candidato" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="urna" source="servidor.Sistema" target="cliente.UrnaInterface" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="urnas" source="servidor.Sistema" target="cliente.UrnaInterface" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;UrnaInterface&gt;"/>
+    <HasRelation name="eleitor" source="cliente.Urna" target="cliente.Eleitor" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="cliente.UrnaInterface" target="cliente.UrnaInterface" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="cliente.Urna" target="cliente.Eleitor" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="cliente.UrnaInterface" target="cliente.Eleitor" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="cliente.Urna" target="cliente.UrnaInterface"/>
+    <UseRelation source="servidor.SistemaInterface" target="cliente.UrnaInterface" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

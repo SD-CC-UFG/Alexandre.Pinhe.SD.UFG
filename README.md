@@ -1,1 +1,1 @@
-# Alexandre Pinheiro - Sistemas Dsitribuídos - UFG
+# Alexandre Pinheiro - Sistemas Dsitribuidos - UFG
